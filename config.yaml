@@ -1,0 +1,20 @@
+development:
+  username: ""
+  password: ""
+  database: ""
+  host: ""
+  sslmode: "disable"
+
+test:
+  username: ""
+  password: ""
+  database: ""
+  host: ""
+  sslmode: "disable"
+
+production:
+  username: ""
+  password: ""
+  database: ""
+  host: ""
+  sslmode: "enable"
