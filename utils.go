@@ -1,6 +1,7 @@
 package pgmigrate
 
 import (
+	"fmt"
 	"io/ioutil"
 	"os"
 	"path/filepath"
@@ -22,6 +23,8 @@ func InitFiles() {
 		os.MkdirAll(migrationPath, os.ModePerm)
 		initSQL, _ := ioutil.ReadFile(filepath.Join(".", "init.sql"))
 		ioutil.WriteFile(migrationPath+"/00000_init.sql", initSQL, 0644)
+		fmt.Println(migrationPath + "/00000_init.sql")
+		fmt.Println(filepath.Join(".", "init.sql"))
 	}
 
 	configPath := filepath.Join(".", "db")
