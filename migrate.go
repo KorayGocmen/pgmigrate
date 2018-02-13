@@ -62,6 +62,9 @@ func (dc *DatabaseConfig) readConfig() {
 
 // Init creates the db connection
 func Init() {
+
+	InitFiles()
+
 	DBConfig.readConfig()
 	env := GetEnvVar("ENV", "development")
 
@@ -93,8 +96,6 @@ func Init() {
 	if err != nil {
 		log.Fatal(err)
 	}
-
-	InitFiles()
 
 	pwd, _ := os.Getwd()
 	migration, err := ioutil.ReadFile(pwd + "/db/migrations/00000_init.sql")
