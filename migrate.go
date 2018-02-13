@@ -8,6 +8,7 @@ import (
 	"os"
 	"path/filepath"
 
+	// pq is used for db driver
 	_ "github.com/lib/pq"
 	yaml "gopkg.in/yaml.v2"
 )
