@@ -20,12 +20,12 @@ func InitFiles() {
 	migrationPath := filepath.Join(".", "db/migrations")
 	if _, err := os.Stat(migrationPath); os.IsNotExist(err) {
 		os.MkdirAll(migrationPath, os.ModePerm)
-		initSQL, _ := ioutil.ReadFile("init.sql")
+		initSQL, _ := ioutil.ReadFile(filepath.Join(".", "init.sql"))
 		ioutil.WriteFile(migrationPath+"/00000_init.sql", initSQL, 0644)
 	}
 
 	configPath := filepath.Join(".", "db")
-	config, _ := ioutil.ReadFile("config.yaml")
+	config, _ := ioutil.ReadFile(filepath.Join(".", "config.yaml"))
 	ioutil.WriteFile(configPath+"/config.yaml", config, 0644)
 }
 
