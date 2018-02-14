@@ -19,10 +19,9 @@ func Init() {
 	if _, err := os.Stat(migrationPath); os.IsNotExist(err) {
 		os.MkdirAll(migrationPath, os.ModePerm)
 		ioutil.WriteFile(migrationPath+"/00000_init.sql", []byte(InitSQL), 0644)
+		configPath := filepath.Join(".", "db")
+		ioutil.WriteFile(configPath+"/config.yaml", []byte(ConfigYAML), 0644)
 	}
-
-	configPath := filepath.Join(".", "db")
-	ioutil.WriteFile(configPath+"/config.yaml", []byte(ConfigYAML), 0644)
 }
 
 // Migrate reads all migrations and migrates them
@@ -69,4 +68,8 @@ func Migrate() {
 			fmt.Println("Migrated: ", migrationName)
 		}
 	}
+}
+
+func main() {
+	fmt.Println("hello")
 }
