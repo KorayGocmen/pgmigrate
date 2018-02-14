@@ -69,7 +69,3 @@ func Migrate() {
 		}
 	}
 }
-
-func main() {
-	fmt.Println("hello")
-}
