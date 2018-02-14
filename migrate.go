@@ -61,10 +61,10 @@ func Migrate() {
 		if !contains(migrated, migrationName) {
 			migration, _ := ioutil.ReadFile(migrationsPath + migrationName)
 			if _, err = DB.Exec(string(migration)); err != nil {
-				fmt.Println("Error migrating", migrationName, err)
+				log.Fatal(err)
 			}
 			if _, err = DB.Exec(`INSERT INTO _migrations (name) VALUES ($1)`, migrationName); err != nil {
-				fmt.Println("Error inserting migration name", migrationName, err)
+				log.Fatal(err)
 			}
 			fmt.Println("Migrated: ", migrationName)
 		}
